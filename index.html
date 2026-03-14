@@ -160,6 +160,19 @@
     
 </div>
 <div id="preview"></div>
+<script>
+    // 監聽頁面上的第一次點擊，觸發音樂播放
+    document.addEventListener('click', function() {
+        var audio = document.getElementById('my-audio');
+        if (audio && audio.paused) {
+            audio.play().then(() => {
+                console.log("音樂開始播放了！");
+            }).catch(e => {
+                console.log("播放失敗，請檢查權限");
+            });
+        }
+    }, { once: true }); // 只要點擊一次就觸發，之後就不會再重複執行
+</script>
 </body>
 
 
