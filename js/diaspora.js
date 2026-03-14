@@ -638,4 +638,18 @@ $(function() {
 		
     console.log("%c Github %c","background:#24272A; color:#ffffff","","https://github.com/Fechin/hexo-theme-diaspora")
 })
-
+// 強制在頁面載入後，移除主題對音頻的干預
+window.addEventListener('load', function() {
+    var myAudio = document.getElementById('my-audio');
+    if (myAudio) {
+        // 解除瀏覽器的靜音封鎖
+        document.body.addEventListener('click', function playMusic() {
+            myAudio.play().then(() => {
+                console.log("音樂成功播放");
+                document.body.removeEventListener('click', playMusic);
+            }).catch(err => {
+                console.log("播放失敗，需要更多互動", err);
+            });
+        }, { once: true });
+    }
+});
