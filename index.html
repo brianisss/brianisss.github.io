@@ -151,8 +151,8 @@
 
     </div>
     
-    <div id="music-player" style="text-align: center; margin: 20px 0;">
-        <audio id="my-audio" controls autoplay loop playsinline>
+    <div style="text-align: center; margin: 20px 0;">
+        <audio id="my-audio" controls loop playsinline>
             <source src="https://brianisss.github.io/music/ba2.mp3" type="audio/mpeg">
         </audio>
     </div>
@@ -160,18 +160,19 @@
     
 </div>
 <div id="preview"></div>
+
 <script>
-    // 監聽頁面上的第一次點擊，觸發音樂播放
-    document.addEventListener('click', function() {
+    window.addEventListener('DOMContentLoaded', function() {
         var audio = document.getElementById('my-audio');
-        if (audio && audio.paused) {
-            audio.play().then(() => {
-                console.log("音樂開始播放了！");
-            }).catch(e => {
-                console.log("播放失敗，請檢查權限");
+        if (audio) {
+            audio.play().catch(function() {
+                console.log("自動播放被攔截，點擊網頁任意處即可播放");
+                document.body.addEventListener('click', function() {
+                    audio.play();
+                }, { once: true });
             });
         }
-    }, { once: true }); // 只要點擊一次就觸發，之後就不會再重複執行
+    });
 </script>
 </body>
 
