@@ -162,17 +162,21 @@
 <div id="preview"></div>
 
 <script>
-    window.addEventListener('DOMContentLoaded', function() {
+  
+    console.log("腳本已經載入執行！"); // 如果 Console 沒看到這句，代表腳本根本沒跑
+    
+    window.addEventListener('load', function() {
         var audio = document.getElementById('my-audio');
         if (audio) {
-            audio.play().catch(function() {
-                console.log("自動播放被攔截，點擊網頁任意處即可播放");
-                document.body.addEventListener('click', function() {
-                    audio.play();
-                }, { once: true });
+            console.log("找到播放器了！");
+            audio.play().catch(function(e) {
+                console.log("播放被攔截，錯誤代碼：", e);
             });
+        } else {
+            console.log("沒找到 my-audio 標籤");
         }
     });
+
 </script>
 </body>
 
