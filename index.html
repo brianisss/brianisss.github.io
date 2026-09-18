@@ -14,7 +14,9 @@
     <meta name="author" content="Brian"> 
     <link rel="canonical" href="https://brianisss.github.io/">
     <link rel="alternate" type="application/atom+xml" title="Brian 的個人作品集" href="https://brianisss.github.io/atom.xml" title="Brian 的個人作品集" type="application/atom+xml"> 
-    <link rel="icon" href="/img/favicon.png"> 
+    <link rel="icon" href="/img/favicon.png">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/img/favicon.png"> 
     
     
     
@@ -33,13 +35,27 @@
     <meta property="og:title" content="Brian 的個人作品集"/>
     
     
+<link 
+    <link rel="manifest" href="/manifest.json">
 <link rel="stylesheet" href="/css/diaspora.css">
 
     <script>window.searchDbPath = "/search.xml";</script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
-<meta name="generator" content="Hexo 8.1.1"></head>
+<meta name="generator" content="Hexo 8.1.1">
+    <script>
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/sw.js')
+          .then(function(reg) {
+            console.log('Service Worker registered');
+          })
+          .catch(function(err) {
+            console.log('SW registration failed:', err);
+          });
+      }
+    </script>
+</head>
 <body class="loading">
     <span id="config-title" style="display:none">Brian 的個人作品集</span>
     <div id="loader"></div>
