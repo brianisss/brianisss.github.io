@@ -1,0 +1,16 @@
+{
+  "name": "Brian 的個人作品集",
+  "short_name": "Brian",
+  "description": "Brian 的個人作品集 - 空拍、影片、技術",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#4a90d9",
+  "icons": [
+    {
+      "src": "/img/favicon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ]
+}
