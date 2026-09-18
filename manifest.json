@@ -3,6 +3,7 @@
   "short_name": "Brian",
   "description": "Brian 的個人作品集 - 空拍、影片、技術",
   "start_url": "/",
+  "scope": "/",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#4a90d9",
@@ -10,6 +11,11 @@
     {
       "src": "/img/favicon.png",
       "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/img/favicon.png",
+      "sizes": "512x512",
       "type": "image/png"
     }
   ]
