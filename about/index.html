@@ -29,7 +29,66 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
-<meta name="generator" content="Hexo 8.1.1"></head>
+<meta name="generator" content="Hexo 8.1.1">
+    <!-- Dark mode toggle -->
+    <button id="dark-mode-toggle" class="dark-mode-btn" onclick="toggleDarkMode()" title="切換暗色模式">
+        <span id="dark-mode-icon">🌙</span>
+    </button>
+    <!-- Scroll to top -->
+    <button id="scroll-to-top" class="scroll-top-btn" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="回到頂部" style="display:none;">
+        ↑
+    </button>
+    <!-- Dark mode styles -->
+    <style>
+        .dark-mode-btn {
+            position: fixed; bottom: 80px; right: 20px; width: 44px; height: 44px;
+            border-radius: 50%; border: none; background: var(--accent, #4a90d9); color: #fff;
+            font-size: 20px; cursor: pointer; box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+            z-index: 1000; display: flex; align-items: center; justify-content: center;
+            transition: background 0.3s;
+        }
+        .dark-mode-btn:hover { background: var(--accent, #4a90d9); opacity: 0.8; }
+        .scroll-top-btn {
+            position: fixed; bottom: 24px; right: 20px; width: 44px; height: 44px;
+            border-radius: 50%; border: none; background: var(--accent, #4a90d9); color: #fff;
+            font-size: 24px; cursor: pointer; box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+            z-index: 1000; transition: background 0.3s;
+        }
+        .scroll-top-btn:hover { background: var(--accent, #4a90d9); opacity: 0.8; }
+        body.dark { background: #1a1a2e; color: #e0e0e0; }
+        body.dark .nav { background: rgba(26,26,46,0.95); }
+        body.dark a { color: #8ab4f8; }
+        body.dark a:hover { color: #aecbfa; }
+        body.dark #loader { background: #1a1a2e; }
+        body.dark .subtitle { color: #b0b0b0; }
+        body.dark .social { color: #b0b0b0; }
+        body.dark .iconfont { color: #e0e0e0; }
+        body.dark .title { color: #e0e0e0; }
+        body.dark h1, body.dark h2, body.dark h3 { color: #e0e0e0; }
+        body.dark .timeline-title { color: #b0b0b0; }
+    </style>
+    <!-- Dark mode script -->
+    <script>
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark');
+            var isDark = document.body.classList.contains('dark');
+            document.getElementById('dark-mode-icon').textContent = isDark ? '☀️' : '🌙';
+            localStorage.setItem('darkMode', isDark);
+        }
+        (function() {
+            var saved = localStorage.getItem('darkMode');
+            if (saved === 'true') {
+                document.body.classList.add('dark');
+                document.getElementById('dark-mode-icon').textContent = '☀️';
+            }
+        })();
+        // Scroll to top visibility
+        window.addEventListener('scroll', function() {
+            var btn = document.getElementById('scroll-to-top');
+            if (btn) btn.style.display = window.scrollY > 300 ? 'block' : 'none';
+        });
+    </script>
+</head>
 <body class="loading">
     <span id="config-title" style="display:none">Brian 的個人作品集</span>
     <div id="loader"></div>
